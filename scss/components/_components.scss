@@ -389,3 +389,12 @@ details {
     margin-bottom: 2rem;
   }
 }
+
+// ─── Utilities ─────────────────────────
+.desktop-only {
+  display: none !important;
+
+  @include lg-up {
+    display: block !important;
+  }
+}
