@@ -24,12 +24,12 @@
   }
 
   &__card {
-    max-width: 650px;
+    max-width: 512px;
     margin: 0 auto 6rem;
     position: relative;
 
     &-image {
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
       display: block; // center logic
       margin: 0 auto;
@@ -43,15 +43,14 @@
 
     &-content {
       background-color: var(--White);
-      border-radius: 16px;
+      border-radius: 10px;
       padding: 3rem 2.4rem;
       margin: -6rem 2rem 0;
       position: relative;
       z-index: 2;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-
+      box-shadow: 0px 16px 19px rgba(0, 0, 0, 0.16);
       @include lg-up {
-        width: 80%;
+        width: 90%;
         margin: -8rem auto 0;
         padding: 4rem 4rem;
       }
@@ -84,7 +83,6 @@
         }
         .lp-cta-subtitle {
           color: var(--Black);
-          margin-top: 1.5rem;
           font-size: 1.5rem;
           font-weight: 500;
           font-family: var(--font-text);

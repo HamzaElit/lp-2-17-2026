@@ -319,6 +319,41 @@ document.addEventListener("DOMContentLoaded", () => {
   if (mobileCta) {
     mobileCta.addEventListener("click", closeMobileMenu);
   }
+
+  // ─── Smooth Scrolling for Header Links ──────────────────────────────────
+  const navLinks = document.querySelectorAll(".lp-header__link, .lp-mobile-menu__link");
+  
+  const sectionMap = {
+    "Before After": ".lp-before-after",
+    "Your Next Steps": ".lp-new-confidence",
+    "Our Prices": ".lp-prices-tables",
+    "Differences": ".lp-why-us",
+    "Our Treatments": ".lp-our-treatments",
+    "Pre-Test-System": ".lp-pre-test-system"
+  };
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      
+      const linkText = this.textContent.trim();
+      const targetSelector = sectionMap[linkText];
+      
+      if (targetSelector) {
+        const targetSection = document.querySelector(targetSelector);
+        if (targetSection) {
+          const header = document.querySelector(".lp-header");
+          const headerHeight = header ? header.offsetHeight : 0;
+          const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
+  });
 });
 
 window.addEventListener("load", function () {
